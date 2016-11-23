@@ -24,6 +24,10 @@ body {
   align-items: center;
 }
 
+.square:active {
+  background-color: #31F9CB;
+}
+
 .square:hover {
   cursor: pointer;
   background-color: #80cd92;
