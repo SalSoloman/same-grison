@@ -17,48 +17,16 @@ class App extends Component {
   }
 
   gameBoardHasWin = function() {
-    let topRow = this.state.board[0] + this.state.board[1] + this.state.board[2];
-      if(topRow.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
+    const rows = [ [0,1,2], [3,4,5], [6,7,8], [0,3,6],  [1,4,7],  [2,5,8],  [0,4,8],  [2,4,6] ]
+    const set = rows.index
+    for(this.set in this.rows){
+      if( this.state.board[set[1]] === this.state.board[set[2]] &&    this.state.board[set[2]] === this.state.board[set[3]]){
+      return true
+      } else {
+      return false
       }
-    let middleRow = this.state.board[3] + this.state.board[4] + this.state.board[5];
-      if(middleRow.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let bottomRow = this.state.board[6] + this.state.board[7] + this.state.board[8];
-      if(bottomRow.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let leftColumn = this.state.board[0] + this.state.board[3] + this.state.board[6];
-      if(leftColumn.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let middleColumn = this.state.board[1] + this.state.board[4] + this.state.board[7];
-      if(middleColumn.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let rightColumn = this.state.board[2] + this.state.board[5] + this.state.board[8];
-      if(rightColumn.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let leftDiag = this.state.board[0] + this.state.board[4] + this.state.board[8];
-      if(leftDiag.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
-    let rightDiag = this.state.board[2] + this.state.board[4] + this.state.board[6];
-      if(rightDiag.match(/xxx|ooo/)) {
-        this.setState({winner: this.state.currentTurn });
-        return;
-      }
+    }
   }
-
 
   handleClick(index){
     if(this.state.board[index] === "") {
